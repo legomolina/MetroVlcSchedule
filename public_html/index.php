@@ -29,13 +29,4 @@ $container['view'] = function ($container) {
     return new \Slim\Views\PhpRenderer('../app/views/');
 };
 
-//Routes controller
-$container['RoutesController'] = function($container) {
-    return new controllers\RoutesController($container);
-};
-
-$container["ConverterController"] = function($container) {
-    return new app\controllers\ConverterController($container);
-};
-
 $app->run();
