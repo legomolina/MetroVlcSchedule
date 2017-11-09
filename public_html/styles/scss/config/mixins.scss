@@ -1,0 +1,43 @@
+/* Add the media tag with custom properties */
+
+@mixin mediaTag ($measure, $orientation: width, $size: max) {
+  @media only screen and (#{$size}-#{$orientation}: $measure) {
+    @content;
+  }
+}
+
+/* Add animated underline */
+
+@mixin linkCoolUnderline ($color: #FFFFFF, $hoverColor: #FFFFFF, $beforeHeight: 1px) {
+  a {
+    @content;
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: $beforeHeight;
+      bottom: 0;
+      left: 0;
+      background-color: $hoverColor;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: all .3s ease;
+    }
+
+    &:hover {
+      color: $hoverColor;
+
+      &:before {
+        visibility: visible;
+        transform: scaleX(1.1);
+      }
+    }
+  }
+}
+
+/* Return color from color map in variables.scss file */
+
+@function color($color) {
+  @return map_get($fontColors, $color);
+}

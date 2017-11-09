@@ -1,0 +1,137 @@
+//BUTTONS - Create classes for all button colors
+.button {
+  background-color: transparent;
+  cursor: pointer;
+  transition: all .3s ease;
+
+  @each $color, $states in $buttonStyle {
+    @if $color != grey {
+      &.button-#{$color} {
+        @each $state, $color in $states {
+          &:#{$state} {
+            background-color: #{$color};
+          }
+        }
+      }
+    }
+    @else {
+      @each $state, $color in $states {
+        &:#{$state} {
+          background-color: #{$color};
+        }
+      }
+    }
+  }
+}
+
+//FORM CONTROLLERS - Create classes for inputs, textareas, select and labels elements
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"], textarea, select {
+  padding: 8px 5px 8px 5px;
+  margin: 10px 0;
+
+  width: 200px;
+
+  font-size: 15px;
+
+  background-color: transparent;
+
+  border: 1px solid transparentize(color(black), 0.2);
+  border-radius: 2px;
+
+  &:hover {
+    border: 1px solid rgba(3, 75, 219, 0.7);
+  }
+
+  &:focus {
+    box-shadow: inset 0 0 18px -7px rgba(3, 75, 219, 0.52);
+    border: 1px solid rgba(3, 75, 219, 1);}
+}
+
+input[type="submit"], input[type="button"], input[type="reset"] {
+  padding: 10px 38px 10px 40px;
+  margin: 10px auto;
+
+  display: block;
+
+  text-align: center;
+
+  background-color: transparent;
+  color: color(black);
+
+  cursor: pointer;
+
+  border: 1px solid transparentize(color(black), 0.2);
+  border-radius: 2px;
+
+  transition: all .3s ease;
+
+  &:hover {
+    background-color: color(light_grey);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    background-color: color(grey);
+    outline: none;
+  }
+}
+
+textarea {
+  min-height: 100px;
+  min-width: 200px;
+}
+
+select option {
+  background-color: $bodyBackgroundColor;
+  width: 100%;
+  padding: 5px;
+}
+
+label {
+  &.on-input {
+    display: block;
+    text-align: center;
+  }
+
+  &.left-input {
+    display: inline-block;
+    margin-right: 10px;
+    text-align: right;
+  }
+}
+
+span.required {
+  position: absolute;
+
+  color: color(red);
+
+  margin-top: -10px;
+
+  font-size: 2.5em;
+  cursor: default;
+}
+
+//OTHER
+.no-scroll {
+  overflow: hidden;
+}
+
+.wrapper {
+  width: 1170px;
+  margin: 0 auto;
+
+  @media only screen and (max-width: 1200px) {
+    width: 970px;
+  }
+
+  @media only screen and (max-width: 992px) {
+    width: 750px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    width: 90%;
+  }
+}

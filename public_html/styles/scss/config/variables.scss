@@ -1,0 +1,24 @@
+//GENERAL
+$bodyBackgroundColor: #FFFFFF;
+
+//FONTS
+$primaryFontFamily: 'Open Sans';
+$secondaryFontFamily: 'Roboto';
+
+//BUTTONS
+$buttonStyle: (
+  grey: (hover: #cccccc, active: #999999),
+  blue: (hover: #86adec, active: #4277af),
+  green: (hover: #6acc64, active: #478e47),
+  red: (hover: #e64746, active: #ae3333),
+);
+
+//COLORS
+$fontColors: (
+  black: #191919,
+  grey: #999999,
+  light_grey: #cccccc,
+  blue: #4277af,
+  green: #478e47,
+  red: #e64746
+);
