@@ -1,8 +1,3 @@
 theme: jekyll-theme-cayman
 title: "MetroVlcSchedule"
-links:
-  -name: Home
-  url: /
-
-  -name: Documentation
-  url: /documentation
+description: "API for MetroValencia train schedule"
