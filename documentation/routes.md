@@ -29,8 +29,8 @@ Requires authentication | No
 |from|required|Specifies the origin station code.| |121|
 |to|required|Specifies the destination station code.| |88|
 |date|optional|Specifies the date you want to perform the search with dd/mm/yyyy format.|Today|19/10/2017|
-|hinit|optional|Specifies the initial time you want to perform the search with hh:mm format.|00:00|16:04|
-|hfinal|optional|Specifies the final time you want to perform the search with hh:mm format.|23:59|08:13|
+|ihour|optional|Specifies the initial time you want to perform the search with hh:mm format.|00:00|16:04|
+|fhour|optional|Specifies the final time you want to perform the search with hh:mm format.|23:59|08:13|
 
 #### Example request
 
