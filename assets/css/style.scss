@@ -1,10 +1,11 @@
 ---
 ---
 
-@import "{{ site.theme }}";
 $header-bg-color: #d30005 !default;
 $header-bg-color-secondary: #d30005 !default;
 $section-headings-color: #d30005 !default;
+
+@import "{{ site.theme }}";
 
 .navigation {
   position: absolute;
