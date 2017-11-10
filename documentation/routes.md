@@ -1,8 +1,8 @@
 <div class="doc-menu">
     <ul>
-        <li><a href="documentation/getting-started">Getting started</a></li>
-        <li><a href="documentation/stations">Stations</a></li>
-        <li><a href="documentation/routes">Routes</a></li>
+        <li><a href="getting-started">Getting started</a></li>
+        <li><a href="stations">Stations</a></li>
+        <li><a href="routes">Routes</a></li>
     </ul>
 </div>
 
@@ -30,7 +30,7 @@ Requires authentication | No
 |to|required|Specifies the destination station code.| |88|
 |date|optional|Specifies the date you want to perform the search with dd/mm/yyyy format.|Today|19/10/2017|
 |hinit|optional|Specifies the initial time you want to perform the search with hh:mm format.|00:00|16:04|
-|hfinal|optional|Specifies the final time you want to perform the search with hh:mm format.|23:00|08:13|
+|hfinal|optional|Specifies the final time you want to perform the search with hh:mm format.|23:59|08:13|
 
 #### Example request
 

@@ -1,8 +1,8 @@
 <div class="doc-menu">
     <ul>
-        <li><a href="documentation/getting-started">Getting started</a></li>
-        <li><a href="documentation/stations">Stations</a></li>
-        <li><a href="documentation/routes">Routes</a></li>
+        <li><a href="getting-started">Getting started</a></li>
+        <li><a href="stations">Stations</a></li>
+        <li><a href="routes">Routes</a></li>
     </ul>
 </div>
 
