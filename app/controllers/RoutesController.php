@@ -197,6 +197,9 @@ class RoutesController extends BaseController
 
             //construct the journey and add it to the array
             $journey[] = new Journey($i, $trains, $journeyFromStation[$i], $journeyToStation[$i], $hours);
+
+            //reset variables
+            $hours = [];
         }
 
         //create the route object
