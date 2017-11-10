@@ -8,7 +8,7 @@ $section-headings-color: #d30005;
 @import "{{ site.theme }}";
 
 .page-header {
-  margin-top: 80px;
+  padding-top: calc(0.75rem + 80px);
 }
 
 .navigation {
