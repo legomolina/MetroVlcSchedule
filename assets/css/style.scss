@@ -67,12 +67,16 @@ $section-headings-color: #d30005;
     position: static;
     text-align: center;
     padding: 0;
+    border-right: none;
+    border-bottom: 2px solid $section-headings-color;
   }
 
   @include small {
     position: static;
     text-align: center;
     padding: 0;
+    border-right: none;
+    border-bottom: 2px solid $section-headings-color;
   }
 }
 
