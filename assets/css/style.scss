@@ -66,7 +66,7 @@ $section-headings-color: #d30005;
   @include medium {
     position: static;
     text-align: center;
-    padding: 0;
+    padding: 0 0 10px;
     border-right: none;
     border-bottom: 2px solid $section-headings-color;
   }
@@ -74,7 +74,7 @@ $section-headings-color: #d30005;
   @include small {
     position: static;
     text-align: center;
-    padding: 0;
+    padding: 0 0 10px;
     border-right: none;
     border-bottom: 2px solid $section-headings-color;
   }
