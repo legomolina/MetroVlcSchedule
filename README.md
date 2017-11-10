@@ -19,5 +19,3 @@ _https://metrovlcschedule.herokuapp.com/api/v1/stations_
 |------------|-----------|:----------:|----------|
 |GET /api/v1/stations|Obtains all stations available with ```station_code: station_name``` format|JSON|
 |GET /api/v1/stations/converter/{station_code}
-
-
