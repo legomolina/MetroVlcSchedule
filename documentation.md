@@ -19,7 +19,7 @@ hardcoded in a json list.
 
 [GET api/v1/stations](documentation/stations#stations) returns the list in json format.
 
-[GET api/v1/stations/converter/{station_code | station_name}](documentation/stations#converter) returns the station object with the provided code __or__ name.
+[GET api/v1/stations/converter/{station_code \| station_name}](documentation/stations#converter) returns the station object with the provided code __or__ name.
 
 ##### [Routes](documentation/routes)
 There are one method to get the schedule between two stations. These schedule is taken from [MetroValencia](http://www.metrovalencia.es)
