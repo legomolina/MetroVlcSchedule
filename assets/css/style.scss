@@ -7,6 +7,10 @@ $section-headings-color: #d30005;
 
 @import "{{ site.theme }}";
 
+.page-header {
+  margin-top: 80px;
+}
+
 .navigation {
   position: absolute;
   z-index: 1000;
