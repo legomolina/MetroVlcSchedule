@@ -8,8 +8,8 @@ class Route implements \JsonSerializable
     private $fromStation;
     private $toStation;
     private $date;
-    private $init_hour;
-    private $final_hour;
+    private $initHour;
+    private $finalHour;
     private $duration;
     private $zoneTickets;
     private $journey;
@@ -26,14 +26,14 @@ class Route implements \JsonSerializable
      * @param string[] $zoneTickets Array of strings
      * @param \app\models\Journey[] $journey
      */
-    public function __construct($routeId, $fromStation, $toStation, $date, $init_hour, $final_hour, $duration, $zoneTickets, $journey)
+    public function __construct($routeId, $fromStation, $toStation, $date, $initHour, $finalHour, $duration, $zoneTickets, $journey)
     {
         $this->routeId = $routeId;
         $this->fromStation = $fromStation;
         $this->toStation = $toStation;
         $this->date = $date;
-        $this->init_hour = $init_hour;
-        $this->final_hour = $final_hour;
+        $this->initHour = $initHour;
+        $this->finalHour = $finalHour;
         $this->duration = $duration;
         $this->zoneTickets = $zoneTickets;
         $this->journey = $journey;
