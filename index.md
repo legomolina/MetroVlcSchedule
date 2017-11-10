@@ -10,6 +10,8 @@ but then I thought that if I could get the data, why not make this data public a
 ### How can I use MetroVlc Schedule?
 It's easy, just go to the [documentation](documentation) page and take a look, you will see that's easy to use.
 
+If you are looking for an example go to [getting started section](documentation/getting-started) to see some.
+
 ### Notes
 - All data comes from the official website of [MetroValencia](http://www.metrovalencia.es).
 - For that reason if [MetroValencia](http://www.metrovalencia.es) is down, MVS won't work.
