@@ -10,7 +10,7 @@ class StationsController extends BaseController
 {
     public function getAllStations($request, $response, $args)
     {
-        $newResponse = $response->withJson(file_get_contents(Constants::STATIONS_JSON));
+        $newResponse = $response->withJson(json_decode(file_get_contents(Constants::STATIONS_JSON)));
         return $newResponse;
     }
 

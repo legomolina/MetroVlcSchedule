@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-class Route
+class Route implements \JsonSerializable
 {
     private $routeId;
     private $fromStation;
@@ -16,15 +16,15 @@ class Route
 
     /**
      * Route constructor.
-     * @param $routeId
-     * @param $fromStation
-     * @param $toStation
-     * @param $date
-     * @param $init_hour
-     * @param $final_hour
-     * @param $duration
-     * @param $zoneTickets
-     * @param $journey
+     * @param int $routeId
+     * @param int $fromStation Origin station code
+     * @param int $toStation Destination station code
+     * @param string $date Date string with format dd/mm/yyyy
+     * @param string $init_hour Hour string with format hh:mm
+     * @param string $final_hour Hour string with format hh:mm
+     * @param int $duration Duration of journey in minutes
+     * @param string[] $zoneTickets Array of strings
+     * @param \app\models\Journey[] $journey
      */
     public function __construct($routeId, $fromStation, $toStation, $date, $init_hour, $final_hour, $duration, $zoneTickets, $journey)
     {
@@ -37,5 +37,17 @@ class Route
         $this->duration = $duration;
         $this->zoneTickets = $zoneTickets;
         $this->journey = $journey;
+    }
+
+    /**
+     * Specify data which should be serialized to JSON
+     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
+     * @since 5.4.0
+     */
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
     }
 }

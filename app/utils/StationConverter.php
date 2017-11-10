@@ -9,6 +9,12 @@ class StationConverter
 {
     private static $stations = null;
 
+    /**
+     * Parses the station code in station_list.json
+     * @link http://metrovlcschedule.dev/station_list.json
+     * @param int $integer Station code
+     * @return array Array containing the station_code and the station_name
+     */
     public static function fromInteger($integer)
     {
         if (self::$stations == null)
@@ -16,12 +22,18 @@ class StationConverter
 
         foreach(self::$stations as $stationCode => $stationString) {
             if($stationCode == $integer)
-                return ["station_code" => $stationCode, "station_name" => $stationString];
+                return ["station_code" => (int)$stationCode, "station_name" => $stationString];
         }
 
         return [];
     }
 
+    /**
+     * Parses the station name in station_list.json
+     * @link http://metrovlcschedule.dev/station_list.json
+     * @param string $string Station name
+     * @return array Array containing the station_code and the station_name
+     */
     public static function fromString($string)
     {
         if (self::$stations == null)
@@ -29,7 +41,7 @@ class StationConverter
 
         foreach(self::$stations as $stationCode => $stationString) {
             if($stationString === $string)
-                return ["station_code" => $stationCode, "station_name" => $stationString];
+                return ["station_code" => (int)$stationCode, "station_name" => $stationString];
         }
 
         return [];
