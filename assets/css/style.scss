@@ -58,5 +58,20 @@ $section-headings-color: #d30005;
 
 .doc-menu {
   position: absolute;
-  left: -30px;
+  left: -200px;
+  border-left: 1px solid $section-headings-color;
+}
+
+.doc-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.doc-menu ul > li > a {
+  color: $body-text-color;
+}
+
+.doc-menu ul > li > a:hover {
+  color: $section-headings-color;
 }

@@ -7,7 +7,7 @@ I'm a regular user of the subway and I'm tired to enter in [MetroValencia](http:
 train comes in a horrible table. My first idea was to take the data and build a new website, responsive and with modern UI;
 but then I thought that if I could get the data, why not make this data public and let everyone to use it?
 
-###How can I use MetroVlc Schedule?
+### How can I use MetroVlc Schedule?
 It's easy, just go to the [documentation](documentation) page and take a look, you will see that's easy to use.
 
 ### Notes
