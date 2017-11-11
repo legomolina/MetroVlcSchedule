@@ -15,34 +15,78 @@ class RoutesController extends BaseController
     public function getRoute($request, $response, $args)
     {
         if (!isset($_GET["from"])) {
-            $newResponse = $response->withStatus(400);
-            $newResponse->getBody()->write("Origin station shuld be included");
-            return $newResponse;
+            return $response->withJson([
+                "status" => 400,
+                "message" => "Origin station should be included"
+            ], 400);
         }
 
         if (!isset($_GET["to"])) {
-            $newResponse = $response->withStatus(400);
-            $newResponse->getBody()->write("Destination station should be included");
-            return $newResponse;
+            return $response->withJson([
+                "status" => 400,
+                "message" => "Destination station should be included"
+            ], 400);
         }
 
-        if(!isset($_GET["date"]))
+        if (!isset($_GET["date"]))
             $date = date("d/m/Y");
         else
             $date = filter_var($_GET["date"], FILTER_SANITIZE_STRING);
 
-        if(!isset($_GET["ihour"]))
+        if (!Utils::validateDate($date, "d/m/Y")) {
+            return $response->withJson([
+                "status" => 400,
+                "message" => "Date is not inserted with correct format dd/mm/yyyy"
+            ], 400);
+        }
+
+        if (!isset($_GET["ihour"]))
             $initHour = "00:00";
         else
             $initHour = filter_var($_GET["ihour"], FILTER_SANITIZE_STRING);
 
-        if(!isset($_GET["fhour"]))
+        if (!Utils::validateDate($initHour, "H:i")) {
+            return $response->withJson([
+                "status" => 400,
+                "message" => "Init hour is not inserted with correct format hh:mm"
+            ], 400);
+        }
+
+        if (!isset($_GET["fhour"]))
             $finalHour = "23:59";
         else
             $finalHour = filter_var($_GET["fhour"], FILTER_SANITIZE_STRING);
 
+        if (!Utils::validateDate($finalHour, "H:i")) {
+            return $response->withJson([
+                "status" => 400,
+                "message" => "Final hour is not inserted with correct format hh:mm"
+            ], 400);
+        }
+
+        if ($initHour == $finalHour) {
+            return $response->withJson([
+                "status" => 400,
+                "message" => "Init hour should be different from final hour"
+            ], 400);
+        }
+
+        if($initHour > $finalHour) {
+            return $response->withJson([
+                "status" => 400,
+                "message" => "Final hour should be greater than final hour"
+            ], 400);
+        }
+
         $fromStation = filter_var($_GET["from"], FILTER_SANITIZE_NUMBER_INT);
         $toStation = filter_var($_GET["to"], FILTER_SANITIZE_NUMBER_INT);
+
+        if($fromStation == $toStation) {
+            return $response->withJson([
+                "status" => 400,
+                "message" => "Origin station should be different from destination station"
+            ], 400);
+        }
 
         $calculate = 1;
 
@@ -72,8 +116,10 @@ class RoutesController extends BaseController
         }
 
         if ($query == null) {
-            $newResponse = $response->withStatus(500);
-            return $newResponse->getBody()->write("An error has occurred.");
+            return $response->withJson([
+                "status" => 500,
+                "message" => "An error has occurred with metrovalencia.es"
+            ]);
         }
 
         $duration = "";
@@ -172,7 +218,7 @@ class RoutesController extends BaseController
             $trains = explode(',', $parts[count($parts) - 1]);
 
             //loops through the trains to trim all strings
-            for($j = 0; $j < count($trains); $j++)
+            for ($j = 0; $j < count($trains); $j++)
                 $trains[$j] = trim($trains[$j]);
 
             /*
