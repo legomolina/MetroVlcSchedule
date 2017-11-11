@@ -30,38 +30,41 @@ class RoutesController extends BaseController
 
         if (!isset($_GET["date"]))
             $date = date("d/m/Y");
-        else
+        else {
             $date = filter_var($_GET["date"], FILTER_SANITIZE_STRING);
 
-        if (!Utils::validateDate($date, "d/m/Y")) {
-            return $response->withJson([
-                "status" => 400,
-                "message" => "Date is not inserted with correct format dd/mm/yyyy"
-            ], 400);
+            if (!Utils::validateDate($date, "d/m/Y")) {
+                return $response->withJson([
+                    "status" => 400,
+                    "message" => "Date is not inserted with correct format dd/mm/yyyy"
+                ], 400);
+            }
         }
 
         if (!isset($_GET["ihour"]))
             $initHour = "00:00";
-        else
+        else {
             $initHour = filter_var($_GET["ihour"], FILTER_SANITIZE_STRING);
 
-        if (!Utils::validateDate($initHour, "H:i")) {
-            return $response->withJson([
-                "status" => 400,
-                "message" => "Init hour is not inserted with correct format hh:mm"
-            ], 400);
+            if (!Utils::validateDate($initHour, "H:i")) {
+                return $response->withJson([
+                    "status" => 400,
+                    "message" => "Init hour is not inserted with correct format hh:mm"
+                ], 400);
+            }
         }
 
         if (!isset($_GET["fhour"]))
             $finalHour = "23:59";
-        else
+        else {
             $finalHour = filter_var($_GET["fhour"], FILTER_SANITIZE_STRING);
 
-        if (!Utils::validateDate($finalHour, "H:i")) {
-            return $response->withJson([
-                "status" => 400,
-                "message" => "Final hour is not inserted with correct format hh:mm"
-            ], 400);
+            if (!Utils::validateDate($finalHour, "H:i")) {
+                return $response->withJson([
+                    "status" => 400,
+                    "message" => "Final hour is not inserted with correct format hh:mm"
+                ], 400);
+            }
         }
 
         if ($initHour == $finalHour) {
