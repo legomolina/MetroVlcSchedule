@@ -1,6 +1,6 @@
 # MetroVlcSchedule
 
-<div style="text-align:center">
+<div align="center">
   <img src="https://github.com/legomolina/MetroVlcSchedule/blob/master/art/metrovlc_schedule_icon_192.png?raw=true" alt="MetroVlcSchedule">
 </div>
 A public API for consulting MetroValencia schedule.
