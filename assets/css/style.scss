@@ -9,6 +9,7 @@ $section-headings-color: #d30005;
 
 .page-header {
   padding-top: calc(0.75rem + 80px);
+  position: relative;
 }
 
 .main-content {
@@ -54,6 +55,12 @@ $section-headings-color: #d30005;
 .navigation > ul > li .btn:hover {
   background-color: rgba(255, 255, 255, 0.8);
   color: #d30005;
+}
+
+.logo-containar {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
 }
 
 .doc-menu {
