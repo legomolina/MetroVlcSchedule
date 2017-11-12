@@ -1,7 +1,8 @@
 # MetroVlcSchedule
 
-![MetrovlcSchedule](https://github.com/legomolina/MetroVlcSchedule/blob/master/art/metrovlc_schedule_icon_64.png?raw=true)
-
+<div style="text-align:center">
+![MetrovlcSchedule](https://github.com/legomolina/MetroVlcSchedule/blob/master/art/metrovlc_schedule_icon_192.png?raw=true)
+</div>
 A public API for consulting MetroValencia schedule.
 
 All documents can be found in [metrovlcschedule.tk](http://metrovlcschedule.tk/).
