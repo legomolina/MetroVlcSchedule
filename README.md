@@ -1,6 +1,6 @@
 # MetroVlcSchedule
 
-![MetrovlcSchedule](https://github.com/legomolina/MetroVlcSchedule/blob/master/art/metrovlc_schedule_icon.png?raw=true)
+![MetrovlcSchedule](https://github.com/legomolina/MetroVlcSchedule/blob/master/art/metrovlc_schedule_icon_64.png?raw=true)
 
 A public API for consulting MetroValencia schedule.
 
