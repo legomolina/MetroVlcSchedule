@@ -91,6 +91,14 @@ class RoutesController extends BaseController
             ], 400);
         }
 
+        if(count(StationConverter::fromInteger($fromStation)) <= 0 ||
+            count(StationConverter::fromInteger($toStation)) <= 0) {
+            return $response->withJson([
+                "status" => 400,
+                "message" => "Origin or destination station doesn't exists"
+            ], 400);
+        }
+
         $calculate = 1;
 
         $postFields = [

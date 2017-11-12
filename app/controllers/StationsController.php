@@ -26,7 +26,9 @@ class StationsController extends BaseController
             return $newResponse;
         }
 
-        $newResponse = $response->withJson($station, 400);
-        return $newResponse;
+        return $response->withJson([
+            "status" => 400,
+            "message" => "Station doesn't exists"
+        ], 400);
     }
 }
