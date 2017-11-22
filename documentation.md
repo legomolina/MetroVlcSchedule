@@ -1,14 +1,12 @@
 <div class="doc-menu">
     <ul>
-        <li><a href="documentation/getting-started">Getting started</a></li>
         <li><a href="documentation/stations">Stations</a></li>
         <li><a href="documentation/routes">Routes</a></li>
     </ul>
 </div>
 
 ### MetroVlc Schedule Documentation
-These pages contain all you need to know about how MVS works and all URL routes. Also you can find examples in
-[getting started section](documentation/getting-started).
+These pages contain all you need to know about how MVS works and all URL routes.
 
 ### [Stations](documentation/stations)
 There are two URL to retrieve the stations. Every station has a ```station_code``` and ```station_name``` that are unique.
