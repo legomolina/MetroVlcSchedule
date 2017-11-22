@@ -62,4 +62,4 @@ curl_close($curl);
 $route = json_decode($curlResponse, true);
 ```
 
-In route you'll get an associative array as it's shown in [Routes](documentation/routes#routes).
+In route you'll get an associative array as it's shown in [Routes](routes#routes).
