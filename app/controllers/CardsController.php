@@ -11,7 +11,7 @@ class CardsController extends BaseController
 
     public function getBalance($request, $response, $args)
     {
-        $cardNumber = $args["cardNumber"]
+        $cardNumber = $args["cardNumber"];
 
         $postFields = [
             "tsc" => $cardNumber
