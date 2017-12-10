@@ -2,6 +2,7 @@
     <ul>
         <li><a href="documentation/stations">Stations</a></li>
         <li><a href="documentation/routes">Routes</a></li>
+        <li><a href="documentation/card">Card</a></li>
     </ul>
 </div>
 
@@ -23,7 +24,10 @@ hardcoded in a json list.
 There are one method to get the schedule between two stations. These schedule is taken from [MetroValencia](http://www.metrovalencia.es)
 so it will be up-to-date.
 
-### [Card balance](documentation/card#balance)
+[GET api/v1/routes](documentation/routes#routes) returns the schedule between two stations. Go to the page to see parameters.
+
+### [Card balance](documentation/card)
 You can get the available zones for the card as well as the balance.
 
-[GET api/v1/routes](documentation/routes#routes) returns the schedule between two stations. Go to the page to see parameters.
+[GET api/v1/card/card_number/balance](documentation/card#balance)
+You can get the available zones for the card as well as the balance.

@@ -2,6 +2,7 @@
     <ul>
         <li><a href="stations">Stations</a></li>
         <li><a href="routes">Routes</a></li>
+        <li><a href="card">Card</a></li>
     </ul>
 </div>
 
