@@ -12,6 +12,7 @@ class CardsController extends BaseController
     public function getBalance($request, $response, $args)
     {
         $cardNumber = $args["cardNumber"];
+        $data = "";
 
         $postFields = [
             "tsc" => $cardNumber
@@ -24,17 +25,21 @@ class CardsController extends BaseController
 
         $paragraphs = $document->getElementsByTagName("p");
 
-        $data = $paragraphs->item($paragraphs->length - 1)->textContent;
+        foreach($paragraphs->item($paragraphs->length - 1)->childNodes as $node) {
+            if($node->nodeType === XML_TEXT_NODE )
+                $data .= $node->textContent . "|||";
+        }
 
-        //TODO Check for several zones
         if(strpos($data, "Saldo") === false)
             return $response->withJson([
                 "status" => 400,
                 "message" => "Card doesn't exists"
             ], 400);
 
-        $cardZone = substr($data, 26, strpos($data, "Saldo") - 26);
-        $cardBalance = substr($data, strpos($data, "viajes: ") + 8, strpos($data, "Recargar") - (strpos($data, "viajes: ") + 8));
+        list($cardZone, $cardBalance) = explode("|||", $data);
+
+        $cardZone = explode(":", $cardZone)[1];
+        $cardBalance = explode(":", $cardBalance)[1];
 
         return $response->withJson([
             "cardNumber" => trim($cardNumber),
