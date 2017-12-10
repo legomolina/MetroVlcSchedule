@@ -9,8 +9,6 @@ class CardsController extends BaseController
 {
     private static $metroValenciaUrl = "https://www.metrovalencia.es/tools_consulta_tsc.php";
 
-    private static $testCardNumber = "3462018238";
-
     public function getBalance($request, $response, $args)
     {
         if (!isset($_GET["card_number"])) {
