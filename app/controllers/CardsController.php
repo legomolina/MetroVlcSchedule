@@ -37,8 +37,12 @@ class CardsController extends BaseController
 
         //TODO Check for several zones
         $cardZone = substr($data, 26, strpos($data, "Saldo") - 26);
-        $cardQuantity = substr($data, strpos($data, "viajes: ") + 8, strpos($data, "Recargar") - (strpos($data, "viajes: ") + 8));
+        $cardBalance = substr($data, strpos($data, "viajes: ") + 8, strpos($data, "Recargar") - (strpos($data, "viajes: ") + 8));
 
-        echo $cardQuantity;
+        return $response->withJson([
+            "cardNumber" => trim($cardNumber),
+            "cardZones" => trim($cardZone),
+            "cardBalance" => trim($cardBalance)
+        ]);
     }
 }
