@@ -11,14 +11,7 @@ class CardsController extends BaseController
 
     public function getBalance($request, $response, $args)
     {
-        if (!isset($_GET["card_number"])) {
-            return $response->withJson([
-                "status" => 400,
-                "message" => "You must enter the card number"
-            ], 400);
-        }
-
-        $cardNumber = filter_var($_GET["card_number"], FILTER_SANITIZE_NUMBER_INT);
+        $cardNumber = $args["cardNumber"]
 
         $postFields = [
             "tsc" => $cardNumber
