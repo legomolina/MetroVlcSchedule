@@ -27,6 +27,12 @@ class CardsController extends BaseController
         $data = $paragraphs->item($paragraphs->length - 1)->textContent;
 
         //TODO Check for several zones
+        if(strpos($data, "Saldo") === false)
+            return $response->withJson([
+                "status" => 400,
+                "message" => "Card doesn't exists"
+            ], 400);
+
         $cardZone = substr($data, 26, strpos($data, "Saldo") - 26);
         $cardBalance = substr($data, strpos($data, "viajes: ") + 8, strpos($data, "Recargar") - (strpos($data, "viajes: ") + 8));
 
