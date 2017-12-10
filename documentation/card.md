@@ -6,7 +6,7 @@
     </ul>
 </div>
 
-## Cards
+## Card
 
 <span id="balance"></span>
 
