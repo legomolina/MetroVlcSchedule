@@ -130,7 +130,7 @@ class RoutesController extends BaseController
             return $response->withJson([
                 "status" => 500,
                 "message" => "An error has occurred with metrovalencia.es"
-            ]);
+            ], 500);
         }
 
         $duration = "";
