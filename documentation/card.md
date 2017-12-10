@@ -10,7 +10,7 @@
 
 <span id="balance"></span>
 
-### GET api/v1/card/0123456789/balance
+### GET api/v1/card/{card_number}/balance
 Returs the card number with the available zones and the balance for it.
 
 #### Resource URL
@@ -38,7 +38,7 @@ GET https://metrovlcschedule.herokuapp.com/api/v1/8564853124/balance
 ```json
 {
   "cardNumber": "8564853124",
-  "cardZones": "A",
+  "cardZones": "Bonometro zona A",
   "cardBalance": "4"
 }
 ```

@@ -34,7 +34,7 @@ Requires authentication | No
 
 #### Example request
 
-GET https://metrovlcschedule.herokuapp.com/api/v1/routes?from=121&to=88&date=10/11/2017&hinit=12:00&hfinal=20:05
+GET https://metrovlcschedule.herokuapp.com/api/v1/routes?from=121&to=88&date=10/11/2017&ihour=12:00&fhour=20:05
 
 #### Example response
 
