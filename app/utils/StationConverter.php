@@ -36,11 +36,15 @@ class StationConverter
      */
     public static function fromString($string)
     {
+        $matcher = new \Diff_SequenceMatcher("a", "b", null, []);
+
         if (self::$stations == null)
             self::$stations = json_decode(file_get_contents(Constants::STATIONS_JSON));
 
         foreach(self::$stations as $stationCode => $stationString) {
-            if($stationString === $string)
+            $matcher->setSequences($stationString, $string);
+
+            if($matcher->Ratio() > 0.6)
                 return ["station_code" => (int)$stationCode, "station_name" => $stationString];
         }
 

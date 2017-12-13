@@ -12,6 +12,8 @@ session_start();
 //Get Composer and custom autoloader and run them
 require '../vendor/autoload.php';
 require_once '../app/project_autoloader.php';
+require_once '../lib/SequenceMatcher.php';
+
 $autloader = new app\Autoloader();
 spl_autoload_register(array($autloader, 'handle'));
 
