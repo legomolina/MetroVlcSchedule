@@ -22,7 +22,7 @@ class StationConverter
 
         foreach(self::$stations as $stationCode => $stationString) {
             if($stationCode == $integer)
-                return ["station_code" => (int)$stationCode, "station_name" => $stationString];
+                return ["station_code" => (int)$stationCode, "station_name" => $stationString, "station_ratio" => 1];
         }
 
         return [];
@@ -36,7 +36,7 @@ class StationConverter
      */
     public static function fromString($string)
     {
-        $bestStation = ["station_code" => 0, "station_name" => "", "ratio" => 0];
+        $bestStation = ["station_code" => 0, "station_name" => "", "station_ratio" => 0];
 
         $matcher = new \Diff_SequenceMatcher("a", "b", null, []);
 
@@ -49,7 +49,7 @@ class StationConverter
             $matcher->setSequences($jsonStation, $searchedStation);
 
             if($matcher->Ratio() > $bestStation["ratio"])
-                $bestStation = ["station_code" => (int)$stationCode, "station_name" => $stationString, "ratio" => $matcher->Ratio()];
+                $bestStation = ["station_code" => (int)$stationCode, "station_name" => $stationString, "station_ratio" => $matcher->Ratio()];
         }
 
         return $bestStation;
