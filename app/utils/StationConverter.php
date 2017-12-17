@@ -36,18 +36,22 @@ class StationConverter
      */
     public static function fromString($string)
     {
+        $bestStation = ["station_code" => 0, "station_name" => "", "ratio" => 0];
+
         $matcher = new \Diff_SequenceMatcher("a", "b", null, []);
 
         if (self::$stations == null)
             self::$stations = json_decode(file_get_contents(Constants::STATIONS_JSON));
 
         foreach(self::$stations as $stationCode => $stationString) {
-            $matcher->setSequences($stationString, $string);
+            list($jsonStation, $searchedStation) = str_replace(['à', 'é', 'è', 'í', 'ò', 'ó', 'ú'], ['a', 'e', 'i', 'o', 'u'], [$stationString, $string]);
 
-            if($matcher->Ratio() > 0.6)
-                return ["station_code" => (int)$stationCode, "station_name" => $stationString];
+            $matcher->setSequences($jsonStation, $searchedStation);
+
+            if($matcher->Ratio() > $bestStation["ratio"])
+                $bestStation = ["station_code" => (int)$stationCode, "station_name" => $stationString, "ratio" => $matcher->Ratio()];
         }
 
-        return [];
+        return $bestStation;
     }
 }
