@@ -48,7 +48,7 @@ class StationConverter
 
             $matcher->setSequences($jsonStation, $searchedStation);
 
-            if($matcher->Ratio() > $bestStation["ratio"])
+            if($matcher->Ratio() > $bestStation["station_ratio"])
                 $bestStation = ["station_code" => (int)$stationCode, "station_name" => $stationString, "station_ratio" => $matcher->Ratio()];
         }
 
