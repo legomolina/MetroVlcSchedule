@@ -45,7 +45,9 @@ GET https://metrovlcschedule.herokuapp.com/api/v1/stations
 <span id="converter"></span>
 
 ### GET api/v1/stations/converter/{station_code \| station_name}
-Returs the station given by station_code or station_name.
+Returs the station given by station_code or station_name. Also returns the station_ratio that is how much the station 
+you are looking for seems to the searched for. eg.: You search for `empalme` but you type `emalme`; the converter will
+return the empalme station because it is the most similar in the list with a ratio of `0.7692307692307693`.
 
 #### Resource URL
 
@@ -73,6 +75,7 @@ GET https://metrovlcschedule.herokuapp.com/api/v1/stations/converter/Sant Joan
 ```json
 {
   "station_code":121,
-  "station_name":"Aeroport"
+  "station_name":"Aeroport",
+  "station_ratio": 0.56
 }
 ```
