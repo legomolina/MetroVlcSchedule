@@ -44,7 +44,7 @@ class StationConverter
             self::$stations = json_decode(file_get_contents(Constants::STATIONS_JSON));
 
         foreach(self::$stations as $stationCode => $stationString) {
-            list($jsonStation, $searchedStation) = str_replace(['à', 'é', 'è', 'í', 'ò', 'ó', 'ú'], ['a', 'e', 'i', 'o', 'u'], [$stationString, $string]);
+            list($jsonStation, $searchedStation) = str_replace(['à', 'é', 'è', 'í', 'ò', 'ó', 'ú'], ['a', 'e', 'e', 'i', 'o', 'o', 'u'], [$stationString, $string]);
 
             $matcher->setSequences($jsonStation, $searchedStation);
 
