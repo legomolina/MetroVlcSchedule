@@ -31,7 +31,7 @@ Requires authentication | No
 
 #### Example request
 
-GET https://metrovlcschedule.herokuapp.com/api/v1/8564853124/balance
+GET https://metrovlcschedule.herokuapp.com/api/v1/card/8564853124/balance
 
 #### Example response
 
