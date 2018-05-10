@@ -14,15 +14,17 @@ class RoutesController extends BaseController
 
     public function getRoute($request, $response, $args)
     {
+        $sendResponse = $this->setCORSHeaders($response);
+
         if (!isset($_GET["from"])) {
-            return $response->withJson([
+            return $sendResponse->withJson([
                 "status" => 400,
                 "message" => "Origin station should be included"
             ], 400);
         }
 
         if (!isset($_GET["to"])) {
-            return $response->withJson([
+            return $sendResponse->withJson([
                 "status" => 400,
                 "message" => "Destination station should be included"
             ], 400);
@@ -34,7 +36,7 @@ class RoutesController extends BaseController
             $date = filter_var($_GET["date"], FILTER_SANITIZE_STRING);
 
             if (!Utils::validateDate($date, "d/m/Y")) {
-                return $response->withJson([
+                return $sendResponse->withJson([
                     "status" => 400,
                     "message" => "Date is not inserted with correct format dd/mm/yyyy"
                 ], 400);
@@ -47,7 +49,7 @@ class RoutesController extends BaseController
             $initHour = filter_var($_GET["ihour"], FILTER_SANITIZE_STRING);
 
             if (!Utils::validateDate($initHour, "H:i")) {
-                return $response->withJson([
+                return $sendResponse->withJson([
                     "status" => 400,
                     "message" => "Init hour is not inserted with correct format hh:mm"
                 ], 400);
@@ -60,7 +62,7 @@ class RoutesController extends BaseController
             $finalHour = filter_var($_GET["fhour"], FILTER_SANITIZE_STRING);
 
             if (!Utils::validateDate($finalHour, "H:i")) {
-                return $response->withJson([
+                return $sendResponse->withJson([
                     "status" => 400,
                     "message" => "Final hour is not inserted with correct format hh:mm"
                 ], 400);
@@ -68,16 +70,16 @@ class RoutesController extends BaseController
         }
 
         if ($initHour == $finalHour) {
-            return $response->withJson([
+            return $sendResponse->withJson([
                 "status" => 400,
                 "message" => "Init hour should be different from final hour"
             ], 400);
         }
 
         if($initHour > $finalHour) {
-            return $response->withJson([
+            return $sendResponse->withJson([
                 "status" => 400,
-                "message" => "Final hour should be greater than final hour"
+                "message" => "Final hour should be greater than init hour"
             ], 400);
         }
 
@@ -85,7 +87,7 @@ class RoutesController extends BaseController
         $toStation = filter_var($_GET["to"], FILTER_SANITIZE_NUMBER_INT);
 
         if($fromStation == $toStation) {
-            return $response->withJson([
+            return $sendResponse->withJson([
                 "status" => 400,
                 "message" => "Origin station should be different from destination station"
             ], 400);
@@ -93,7 +95,7 @@ class RoutesController extends BaseController
 
         if(count(StationConverter::fromInteger($fromStation)) <= 0 ||
             count(StationConverter::fromInteger($toStation)) <= 0) {
-            return $response->withJson([
+            return $sendResponse->withJson([
                 "status" => 400,
                 "message" => "Origin or destination station doesn't exists"
             ], 400);
@@ -127,7 +129,7 @@ class RoutesController extends BaseController
         }
 
         if ($query == null) {
-            return $response->withJson([
+            return $sendResponse->withJson([
                 "status" => 500,
                 "message" => "An error has occurred with metrovalencia.es"
             ], 500);
@@ -263,6 +265,6 @@ class RoutesController extends BaseController
         $route = new Route(rand(0, 10), (int)$fromStation, (int)$toStation, $date, $initHour, $finalHour, (int)$duration, $tickets, $journey);
 
         //return the route object encoded
-        return $response->withJson($route);
+        return $sendResponse->withJson($route);
     }
 }

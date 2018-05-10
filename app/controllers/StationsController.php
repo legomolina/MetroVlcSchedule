@@ -10,23 +10,24 @@ class StationsController extends BaseController
 {
     public function getAllStations($request, $response, $args)
     {
-        $newResponse = $response->withJson(json_decode(file_get_contents(Constants::STATIONS_JSON)));
-        return $newResponse;
+        $sendResponse = $this->setCORSHeaders($response);
+        return $sendResponse->withJson(json_decode(file_get_contents(Constants::STATIONS_JSON)));
     }
 
     public function convertStation($request, $response, $args)
     {
+        $sendResponse = $this->setCORSHeaders($response);
+
         if (is_numeric($args["station"]))
             $station = StationConverter::fromInteger($args["station"]);
         else
             $station = StationConverter::fromString($args["station"]);
 
         if (count($station) > 0) {
-            $newResponse = $response->withJson($station);
-            return $newResponse;
+            return $sendResponse->withJson($station);
         }
 
-        return $response->withJson([
+        return $sendResponse->withJson([
             "status" => 400,
             "message" => "Station doesn't exists"
         ], 400);

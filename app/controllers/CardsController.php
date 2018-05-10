@@ -11,6 +11,8 @@ class CardsController extends BaseController
 
     public function getBalance($request, $response, $args)
     {
+        $sendResponse = $this->setCORSHeaders($response);
+
         $cardNumber = $args["cardNumber"];
         $data = "";
 
@@ -31,7 +33,7 @@ class CardsController extends BaseController
         }
 
         if(strpos($data, "Saldo") === false)
-            return $response->withJson([
+            return $sendResponse->withJson([
                 "status" => 400,
                 "message" => "Card doesn't exists"
             ], 400);
@@ -41,7 +43,7 @@ class CardsController extends BaseController
         $cardZone = explode(":", $cardZone)[1];
         $cardBalance = explode(":", $cardBalance)[1];
 
-        return $response->withJson([
+        return $sendResponse->withJson([
             "cardNumber" => trim($cardNumber),
             "cardZones" => trim($cardZone),
             "cardBalance" => trim($cardBalance)
