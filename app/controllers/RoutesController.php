@@ -10,7 +10,7 @@ use app\utils\Utils;
 
 class RoutesController extends BaseController
 {
-    private static $metroValenciaUrl = "http://www.metrovalencia.es/horarios.php";
+    private static $metroValenciaUrl = "https://www.metrovalencia.es/horarios.php";
 
     public function getRoute($request, $response, $args)
     {
