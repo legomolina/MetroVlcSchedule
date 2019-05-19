@@ -7,10 +7,11 @@ use app\models\Journey;
 use app\models\Route;
 use app\utils\StationConverter;
 use app\utils\Utils;
+use DOMDocument;
 
 class RoutesController extends BaseController
 {
-    private static $metroValenciaUrl = "https://www.metrovalencia.es/horarios.php";
+    private static $metroValenciaUrl = "https://www.metrovalencia.es/horarios.php?idioma=_es";
 
     public function getRoute($request, $response, $args)
     {
@@ -114,8 +115,8 @@ class RoutesController extends BaseController
 
         $curlResponse = Utils::curlPost(self::$metroValenciaUrl, "MetroVlcHorarios", $postFields);
 
-        $document = new \DOMDocument();
-        $document->loadHTML($curlResponse);
+        $document = new DOMDocument();
+        $document->loadHTML($curlResponse, LIBXML_NOERROR);
 
         $divs = $document->getElementsByTagName("div");
 
