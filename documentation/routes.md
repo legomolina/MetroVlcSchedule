@@ -28,13 +28,13 @@ Requires authentication | No
 |:---:|:------:|-----------|-------------|:-----:|
 |from|required|Specifies the origin station code.| |121|
 |to|required|Specifies the destination station code.| |88|
-|date|optional|Specifies the date you want to perform the search with dd/mm/yyyy format.|Today|19/10/2017|
+|date|optional|Specifies the date you want to perform the search with dd/mm/yyyy format.|Today|19/05/2019|
 |ihour|optional|Specifies the initial time you want to perform the search with hh:mm format.|00:00|16:04|
 |fhour|optional|Specifies the final time you want to perform the search with hh:mm format.|23:59|08:13|
 
 #### Example request
 
-GET https://metrovlcschedule.herokuapp.com/api/v1/routes?from=121&to=88&date=10/11/2017&ihour=12:00&fhour=20:05
+GET https://metrovlcschedule.herokuapp.com/api/v1/routes?from=121&to=88&date=19/05/2019&ihour=12:00&fhour=20:05
 
 #### Example response
 
@@ -43,7 +43,7 @@ GET https://metrovlcschedule.herokuapp.com/api/v1/routes?from=121&to=88&date=10/
   "routeId":0,
   "fromStation":121,
   "toStation":88,
-  "date":"10\/11\/2017",
+  "date":"19\/05\/2019",
   "initHour":"12:00",
   "finalHour":"20:05",
   "duration":40,
